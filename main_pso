@@ -1,0 +1,61 @@
+close all
+clear
+clc
+
+tic
+addpath(genpath(pwd));
+%数据库名和表名
+capacity=99;
+data_time_real_NWP_old=database_read_all();%读取全部数据库
+
+
+% day=[2016,3,1];
+% for i=1:31
+%     day(1,3)=i
+%     [data_model,data_NWP]=read_data(day,data_time_real_NWP_old);
+% 
+%     out_cell=Forecast_pso(data_model,data_NWP,capacity);
+%     database_write_predict(out_cell);
+% end
+% day=[2016,4,1];
+% for i=1:30
+%     day(1,3)=i
+%     [data_model,data_NWP]=read_data(day,data_time_real_NWP_old);
+% 
+%     out_cell=Forecast_pso(data_model,data_NWP,capacity);
+%     database_write_predict(out_cell);
+% end
+% day=[2016,5,1];
+% for i=25:31
+%     day(1,3)=i
+%     [data_model,data_NWP]=read_data(day,data_time_real_NWP_old);
+% 
+%     out_cell=Forecast_pso(data_model,data_NWP,capacity);
+%     database_write_predict(out_cell);
+% end
+day=[2016,6,1];
+for i=16:30
+    day(1,3)=i
+    [data_model,data_NWP]=read_data(day,data_time_real_NWP_old);
+
+    out_cell=Forecast_pso(data_model,data_NWP,capacity);
+    database_write_predict(out_cell);
+end
+day=[2016,7,1];
+for i=1:31
+    day(1,3)=i
+    [data_model,data_NWP]=read_data(day,data_time_real_NWP_old);
+
+    out_cell=Forecast_pso(data_model,data_NWP,capacity);
+    database_write_predict(out_cell);
+end
+day=[2016,8,1];
+for i=1:30
+    day(1,3)=i
+    [data_model,data_NWP]=read_data(day,data_time_real_NWP_old);
+
+    out_cell=Forecast_pso(data_model,data_NWP,capacity);
+    database_write_predict(out_cell);
+end
+
+toc
